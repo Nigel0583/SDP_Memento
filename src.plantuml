@@ -1,0 +1,48 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+
+    class DrawGraphic {
+        - X1 : int
+        - X2 : int
+        - Y1 : int
+        - Y2 : int
+        - bufferedImage : BufferedImage
+        - graphics2D : Graphics2D
+        + DrawGraphic()
+        + black()
+        + blue()
+        + clear()
+        + green()
+        + load()
+        + red()
+        + save()
+        # paintComponent()
+    }
+
+    class DrawerGUI {
+        ~ btBlack : JButton
+        ~ btBlue : JButton
+        ~ btClear : JButton
+        ~ btGreen : JButton
+        ~ btLoad : JButton
+        ~ btRed : JButton
+        ~ btSave : JButton
+        ~ listener : ActionListener
+        ~ pnDrawer : JPanel
+        - file : File
+        - lbFileName : JLabel
+        - saveCounter : int
+        + DrawerGUI()
+    }
+
+    class Driver {
+        {static} + main()
+    }
+
+  DrawGraphic -up-|> javax.swing.JComponent
+  DrawerGUI -up-|> javax.swing.JFrame
+  DrawerGUI o-- DrawGraphic : drawGraphic
+
+@enduml
