@@ -1,0 +1,30 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+    class Driver{
+    }
+
+    class Caretaker {
+    }
+
+    class DrawGraphic {
+    }
+
+    class DrawerGUI {
+    }
+
+    class Memento {
+    }
+
+    class Originator {
+    }
+
+  Driver -- DrawerGUI
+  Originator ..>  Memento
+  DrawGraphic o- Originator : originator
+  DrawerGUI o-- DrawGraphic : drawGraphic
+  Originator o-- Caretaker : caretaker
+  Caretaker -->  Memento
+
+@enduml

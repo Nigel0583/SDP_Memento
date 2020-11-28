@@ -1,0 +1,36 @@
+@startuml
+
+ skinparam classAttributeIconSize 0
+
+    class Caretaker {
+        - max_size : int
+        - redoStack : Stack<Memento>
+        - undoStack : Stack<Memento>
+        + Caretaker()
+        + addMemento()
+        + redo()
+        + undo()
+    }
+
+    class Memento {
+        - state : BufferedImage
+        + Memento()
+        + getState()
+    }
+
+    class Originator {
+        - image : BufferedImage
+        + Originator()
+        + getImage()
+        + redo()
+        + setAndStoreState()
+        + setImage()
+        + undo()
+        - createMemento()
+        - restoreMemento()
+    }
+
+    Originator ..>  Memento
+    Originator o-- Caretaker : caretaker
+    Caretaker -->  Memento
+@enduml

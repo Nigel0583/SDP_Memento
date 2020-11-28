@@ -1,5 +1,7 @@
+import javax.swing.*;
+
 public class Driver {
     public static void main(String[] args) {
-                new DrawerGUI();
+        SwingUtilities.invokeLater(DrawerGUI::new);
     }
 }
